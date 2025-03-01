@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="robotia_company_action" model="ir.actions.act_window">
+    <field name="name">Companies</field>
+    <field name="res_model">robotia.company</field>
+    <field name="view_mode">list,form</field>
+    <field name="domain">[]</field>
+    <field name="context">{}</field>
+  </record>
+
+  <record id="action_robotia_dashboard" model="ir.actions.client">
+    <field name="name">My dashboard</field>
+    <field name="tag">robotia_dashboard</field>
+    <field name="target">main</field>
+    <field name="path">robotia_dashboard</field>
+  </record>
+
+  <menuitem
+    id="company_dashboard_menu"
+    name="Dashboard"
+    action="company_management.action_robotia_dashboard"
+    sequence="1" />
+
+  <menuitem
+    id="company_view_menu"
+    name="Companies Management"
+    action="company_management.robotia_company_action"
+    sequence="2" />
+
+</odoo>

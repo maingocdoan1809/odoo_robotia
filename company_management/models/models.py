@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
+from odoo.addons.company_management.common import message
+class Company(models.Model):
+    _name = 'robotia.company'
+    _description = 'Company'
+    partner_id = fields.Many2one('res.partner', string='Partner', ondelete='restrict', auto_join=True, index=True, delegate=True)
+    charter_capital = fields.Char('Charter Capital')
 
-
-# class company_management(models.Model):
-#     _name = 'company_management.company_management'
-#     _description = 'company_management.company_management'
-
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+    @api.constrains('phone')
+    def validate_phone(self):
+        for record in self:
+            try:
+                record._phone_format(raise_exception=True)
+            except:
+                raise ValidationError(message.PHONE_INVALID_ERR)
 
