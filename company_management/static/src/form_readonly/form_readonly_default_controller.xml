@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <t t-name="company_management.FormViewReadonlyDefault" t-inherit="web.FormView"
+    t-inherit-mode="primary">
+    <xpath expr="//t[@t-set-slot='control-panel-status-indicator']" position="replace">
+      <t t-set-slot="control-panel-status-indicator">
+        <button class="btn btn-secondary btn-sm" t-if="this.formState.mode == 'readonly' and !this.model.root.isNew" t-on-click="this.toggleMode">Edit</button>
+        <t t-if="this.formState.mode == 'edit' or this.model.root.isNew">
+          <button class="btn btn-primary btn-sm" t-on-click.stop="this.saveButtonClicked">Save</button>
+          <button class="btn btn-danger btn-sm" t-on-click.stop="this.discard">Discard</button>
+          <span
+            t-if="!this.model.root.isNew and !this.model.root.isValid"
+            class="text-danger small ms-2"
+            data-tooltip="Unable to save. Correct the issue or discard all changes">
+            <i class="fa fa-warning" />
+          </span>
+        </t>
+      </t>
+    </xpath>
+  </t>
+</templates>

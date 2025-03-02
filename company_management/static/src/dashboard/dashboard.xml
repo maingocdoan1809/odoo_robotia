@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <t t-name="company_management.robotia_dashboard">
+    <main class="container my-4 dashboard">
+      <h3>My Apps</h3>
+      <div class="row">
+        <t t-foreach="this.getApps()" t-as="app" t-key="id">
+          <div class="col-lg-3 col-sm-6" t-on-click="(ev) => this.onClickApp(app)">
+              <div class="p-1">
+                <div class="card row d-flex flex-row align-items-center">
+                  <img style="padding:10px;max-width:100px" t-att-src="app.webIconData"
+                    class="card-img-top col-7" alt="App image" />
+                  <div class="card-body p-1 col-5">
+                    <h5 class="card-title text-left">
+                      <t t-esc="app.name" />
+                    </h5>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </t>
+      </div>
+      <h3 class="mt-3">Company list</h3>
+      <div class="row">
+        <View t-props="this.getListCompanyViewProps" />
+      </div>
+    </main>
+  </t>
+</templates>
