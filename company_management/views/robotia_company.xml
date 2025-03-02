@@ -1,69 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-  <record id="robotia_company_view_form" model="ir.ui.view">
-    <field name="name">robotia_company.view.form</field>
-    <field name="model">robotia.company</field>
-    <field name="arch" type="xml">
-    <!-- create = 0 để ẩn nút tạo mới -->
-      <form js_class="form_readonly_default" create="0"> 
-        <sheet>
-          <group name="name">
-            <h1>
-              <field name="name" required="True" placeholder="Company Name"/>
-            </h1>
-          </group>
-          <group name="basic_information" string="Basic Information">
-              <field name="phone" />
-            <div>
-              <span class="o_form_label o_td_label o_address_type" name="address_name">
-                <span>Address</span>
-              </span>
-              <div class="o_address_format d-flex">
-                <field name="country_id" required="True" placeholder="Country" class="o_address_country"
-                  options='{"no_open": True, "no_create": True}' />
-                <field name="state_id" class="o_address_state" placeholder="State"
-                  options="{'no_open': True, 'no_quick_create': True}"
-                  context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}" />
-                <field name="city" placeholder="City" class="o_address_city" />
-                <field name="street" placeholder="Street..." class="o_address_street" />
-                <field name="street2" placeholder="Street 2..." class="o_address_street" />
-              </div>
-            </div>
-            <field name="vat" placeholder="e.g. BE0477472701" readonly="parent_id" />
-            <field name="charter_capital" />
-          </group>
-        </sheet>
-      </form>
-    </field>
-  </record>
+    <record id="robotia_company_view_form" model="ir.ui.view">
+        <field name="name">robotia_company.view.form</field>
+        <field name="model">robotia.company</field>
+        <field name="arch" type="xml">
+            <!-- create = 0 để ẩn nút tạo mới -->
+            <form js_class="form_readonly_default" create="0">
+                <sheet>
+                    <group name="name">
+                        <h1>
+                            <field name="name" required="True" placeholder="Company Name" />
+                        </h1>
+                    </group>
+                    <group name="basic_information" string="Basic Information">
+                        <group colspan="12">
+                            <field name="phone" />
+                        </group>
+                        <group colspan="12">
+                            <label for="country_id" class="o_form_label" string="Address" />
+                            <div class="o_address_format d-flex">
+                                <field name="country_id" required="True" placeholder="Country"
+                                    options='{"no_open": True, "no_create": True}' />
+                                <field name="state_id" placeholder="State"
+                                    options="{'no_open': True, 'no_quick_create': True}"
+                                    context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}" />
+                                <field name="city" placeholder="City" />
+                                <field name="street" placeholder="Street..." />
+                                <field name="street2" placeholder="Street 2..."  class="o_address_street" />
+                            </div>
+                        </group>
+                        <group colspan="12">
+                            <field name="vat" placeholder="e.g. BE0477472701" readonly="parent_id" />
+                        </group>
+                        <group colspan="12">
+                            <field name="charter_capital" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-  <record id="robotia_company_view_tree" model="ir.ui.view">
-    <field name="name">robotia_company.view.tree</field>
-    <field name="model">robotia.company</field>
-    <field name="arch" type="xml">
-      <list string="Company List">
-        <field name="name" />
-        <field name="phone" />
-        <field name="contact_address" />
-        <field name="vat"/>
-        <field name="charter_capital" />
-      </list>
-    </field>
-  </record>
+    <record id="robotia_company_view_tree" model="ir.ui.view">
+        <field name="name">robotia_company.view.tree</field>
+        <field name="model">robotia.company</field>
+        <field name="arch" type="xml">
+            <list string="Company List">
+                <field name="name" />
+                <field name="phone" />
+                <field name="contact_address" />
+                <field name="vat" />
+                <field name="charter_capital" />
+            </list>
+        </field>
+    </record>
 
-  <record id="robotia_company_view_search" model="ir.ui.view">
-    <field name="name">robotia_company.view.tree.search</field>
-    <field name="model">robotia.company</field>
-    <field name="arch" type="xml">
-      <search string="">
-        <field name="name"></field>
-        <field name="phone" />
-        <field name="contact_address" />
-        <field name="vat" />
-        <field name="charter_capital" />
-      </search>
-    </field>
-  </record>
+    <record id="robotia_company_view_search" model="ir.ui.view">
+        <field name="name">robotia_company.view.tree.search</field>
+        <field name="model">robotia.company</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <field name="name"></field>
+                <field name="phone" />
+                <field name="contact_address" />
+                <field name="vat" />
+                <field name="charter_capital" />
+            </search>
+        </field>
+    </record>
 
 </odoo>

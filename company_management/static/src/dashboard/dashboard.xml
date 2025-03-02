@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
   <t t-name="company_management.robotia_dashboard">
+  <div style="height:100%;overflow:auto;">
     <main class="container my-4 dashboard">
       <h3>My Apps</h3>
       <div class="row">
-        <t t-foreach="this.getApps()" t-as="app" t-key="id">
+        <t t-foreach="this.getApps()" t-as="app" t-key="app.id">
           <div class="col-lg-3 col-sm-6" t-on-click="(ev) => this.onClickApp(app)">
               <div class="p-1">
                 <div class="card row d-flex flex-row align-items-center">
@@ -21,9 +22,10 @@
         </t>
       </div>
       <h3 class="mt-3">Company list</h3>
-      <div class="row">
+      <div class="row card">
         <View t-props="this.getListCompanyViewProps" />
       </div>
     </main>
+  </div>
   </t>
 </templates>
