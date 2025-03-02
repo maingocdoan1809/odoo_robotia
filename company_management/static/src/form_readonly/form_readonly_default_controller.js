@@ -41,7 +41,7 @@ export class FormReadonlyDefaultController extends FormController {
   async onRecordSaved(record, changes) {
     await super.onRecordSaved(record, changes);
     this.toggleMode();
-    this.model.notification.add(_t("Record saved successfully"), {
+    this.model.notification.add(_t("Record saved successfully!"), {
       type: "success",
     });
   }

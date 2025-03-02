@@ -86,3 +86,9 @@ msgstr "Đường 2..."
 #: model_terms:ir.ui.view,arch_db:company_management.robotia_company_view_form
 msgid "e.g. BE0477472701"
 msgstr "Ví dụ BE0477472701"
+
+#. module: company_management
+#. odoo-javascript
+#: code:customs/company_management/static/src/form_readonly/form_readonly_default_controller.js:0
+msgid "Record saved successfully!"
+msgstr "Lưu bản ghi thành công!"
